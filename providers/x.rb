@@ -56,7 +56,7 @@ end
 def t_mkdir(tarball, entry, pax, name = nil)
   pax_handler(pax)
   if name.nil?
-    dir = ::File.join(tarball.destination, entry.full_name).gsub(/\/$/, '')
+    dir = ::File.join(tarball.destination, entry.full_name).gsub(%r{/$}, '')
   else
     dir = name
   end
